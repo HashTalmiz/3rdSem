@@ -1,5 +1,5 @@
 import java.util.Scanner;
-class stack
+class stacks
 {
 	int top,a[],n;
 	stack(int size)
@@ -45,9 +45,7 @@ class stack
 			display();
 		}
 	}
-}
-class stacks
-{
+
 	public static void main(String[] args) 
 	{
 		int ch;
