@@ -3,8 +3,8 @@ class complex{
 	double real, img;
 	
 	complex(double r, double i){
-		this.real = r;
-		this.img = i;
+		real = r;
+		img = i;
 	}
 	
 	public static void sum(complex c1, complex c2)
@@ -37,11 +37,11 @@ class complex{
 	public static void main(String args[]) 
 	{
 		Scanner in = new Scanner(System.in);
-		System.out.println("Enter the real and imaginary numbers of the first complex:");
+		System.out.print("Enter the real and imaginary numbers of the first complex:");
 		double r=in.nextDouble();
 		double i=in.nextDouble();
 		complex c1 = new complex(r,i);
-		System.out.println("Enter the real and imaginary numbers of the second complex:");
+		System.out.print("Enter the real and imaginary numbers of the second complex:");
 		r=in.nextDouble();
 		i=in.nextDouble();
 		complex c2 = new complex(r,i);
