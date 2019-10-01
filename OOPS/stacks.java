@@ -2,7 +2,7 @@ import java.util.Scanner;
 class stacks
 {
 	int top,a[],n;
-	stack(int size)
+	stacks(int size)
 	{
 		top=-1;
 		a= new int[size];
