@@ -13,7 +13,7 @@ int full(stack *);
 char pop(stack *);
 void push(stack *,char);
 char top(stack *);
-void main()
+int main()
 {
 	stack s;
 	char x;
@@ -54,6 +54,8 @@ void main()
 		x=pop(&s);
 		printf("%c",x);
 	}
+	return 0;
+	
 }
 int priority(char x)
 {
