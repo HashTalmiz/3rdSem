@@ -6,8 +6,7 @@ class complex{
 		real = r;
 		img = i;
 	}
-	
-	public static void sum(complex c1, complex c2)
+	public void sum(complex c1, complex c2)
 	{
 		complex temp = new complex(0, 0);
 
@@ -16,7 +15,7 @@ class complex{
 
 		System.out.println("Sum is: ("+ temp.real+") + ("+ temp.img +")i");
 	}
-	public static void diff(complex c1, complex c2)
+	public void diff(complex c1, complex c2)
 	{
 		complex temp = new complex(0, 0);
 
@@ -25,7 +24,7 @@ class complex{
 
 		System.out.println("Difference is: ("+ temp.real+") + ("+ temp.img +")i");
 	}
-	public static void product(complex c1, complex c2)
+	public void product(complex c1, complex c2)
 	{
 		complex temp = new complex(0, 0);
 
@@ -52,11 +51,11 @@ class complex{
 			ch=in.nextInt();
 			switch(ch)
 			{
-				case 1: sum(c1,c2);
+				case 1: c1.sum(c1,c2);
 						break;
-				case 2: diff(c1,c2);
+				case 2: c1.diff(c1,c2);
 						break;
-				case 3: product(c1,c2);
+				case 3: c1.product(c1,c2);
 						break;
 				case 4: break;	
 			}
