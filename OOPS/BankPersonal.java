@@ -1,13 +1,12 @@
-package com.example.javalib;
 
 import java.util.Scanner;
 
-public class Personal {
+public class BankPersonal {
     String name;
     int age, edu, yr_exp, loan_num;
     double ba, hra, da, loan_amt;
 
-    Personal(String a, int b, int c, double d, int e) {
+    BankPersonal(String a, int b, int c, double d, int e) {
         name = a;
         age = b;
         edu = c;
@@ -73,7 +72,7 @@ public class Personal {
         System.out.println("Enter the number of employees");
         n=sc.nextInt();
         sc.nextLine();
-        Personal A[] = new Personal[n];
+        BankPersonal A[] = new BankPersonal[n];
         for(i=0; i<n; i++)
         {
             System.out.println("Enter the name");
@@ -87,7 +86,7 @@ public class Personal {
             System.out.println("Enter the years of experience");
             yrex=sc.nextInt();
             sc.nextLine();
-            A[i] = new Personal(na,ag,ed,b,yrex);
+            A[i] = new BankPersonal(na,ag,ed,b,yrex);
         }
         for(i=0; i<n; i++)
         {
