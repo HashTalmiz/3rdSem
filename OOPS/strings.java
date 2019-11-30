@@ -1,5 +1,5 @@
 import java.lang.String;
-class Strg
+class strings
 {
   public static void main(String args[])
   {
