@@ -1,5 +1,6 @@
 import java.nio.DoubleBuffer;
 import java.util.Scanner;
+// package ResultPackage
 class InvalidSGPA extends Exception 
 {
     private double input;

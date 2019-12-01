@@ -1,6 +1,6 @@
 import java.util.*;
 import java.util.Scanner;
-
+// package StudentPackage
 class CreditLimit extends Exception
 {
     public String toString()
@@ -11,7 +11,6 @@ class CreditLimit extends Exception
 
 class RegisterStudent
 {
-    
     void total(int cd)
     {
         int TotalCredits=cd;

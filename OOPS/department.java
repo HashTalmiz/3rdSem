@@ -3,7 +3,6 @@ import java.util.Scanner;
 public class Faculty
 {
     Scanner sc = new Scanner(System.in);
-    {System.out.println("Enter the number of faculties");}
     public static  int n = (new Faculty()).sc.nextInt();
     public static String name[]=new String[n],
         desig[]=new String[n],
@@ -23,8 +22,8 @@ class MainClass
     }
 }
 
-package ise
-import java.util.Scanner;
+// package ise
+// import java.util.Scanner;
 public interface Department
 {
     void readdata();
@@ -50,7 +49,7 @@ public class ISE_department implements Department
                     throw new Exception("Invalid Age.Should be between 0 and 59.");
             }
             catch (Exception e) {
-                System.out.println("Exception occured : " +e);
+                System.out.println("Exception Caught: " +e);
                 System.exit(0);
             }
             sc.nextLine();

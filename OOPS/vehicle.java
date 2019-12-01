@@ -41,6 +41,7 @@ final class FourWheeler extends vehicle
     }
     void putData()
     {
+        System.out.println();
         System.out.println("Year of manufacture : "+year_of_manufacture);
         System.out.println("Mileage : "+m+"Km/L");
         System.out.println("Top Speed : "+sp+"Km/Hr");
@@ -48,6 +49,7 @@ final class FourWheeler extends vehicle
 }
 class MyTwoWheeler extends TwoWheeler
 {
+    MyTwoWheeler()
     {
         super.getData();
         super.putData();
@@ -59,8 +61,4 @@ class Drive
     {
         MyTwoWheeler ob = new MyTwoWheeler();
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 0044e8ad664ce4cfe19020e25a37ae3251c69ccc
