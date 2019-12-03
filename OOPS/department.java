@@ -2,25 +2,14 @@
 import java.util.Scanner;
 public class Faculty
 {
-    Scanner sc = new Scanner(System.in);
-    public static  int n = (new Faculty()).sc.nextInt();
-    public static String name[]=new String[n],
-        desig[]=new String[n],
-        joining_date[]=new String[n];
-    public static int age[]=new int[n],
-        exp_yrs[]=new int[n],
-        subjects_handled[]=new int[n];
+     String name[],
+        desig[],
+        joining_date[];
+     int n, age[],
+        exp_yrs[],
+        subjects_handled[];
 }
 
-class MainClass
-{
-    public static void main(String args[])
-    {
-        Department o = new ISE_department();
-        o.readdata();
-        o.printdata();
-    }
-}
 
 // package ise
 // import java.util.Scanner;
@@ -32,11 +21,17 @@ public interface Department
     int number_research_consultancy_projs(int i);
 }
 
-public class ISE_department implements Department
+public class ISE_department extends Faculty implements Department
 {
     Scanner sc = new Scanner(System.in);
     public void readdata()
     {
+        System.out.println("Enter the number of lecturers:");
+        n = sc.nextInt();
+        sc.nextLine();
+        name = new String[n]; desig = new String[n]; joining_date = new String[n];
+        age = new int[n]; exp_yrs = new int[n]; subjects_handled = new int[n];
+
         for (int i = 0; i < n; i++)
         {
             System.out.println("Enter the name");
@@ -46,7 +41,7 @@ public class ISE_department implements Department
             try
             {
                 if(age[i]<1 || age[i]>58)
-                    throw new Exception("Invalid Age.Should be between 0 and 59.");
+                    throw new Exception("Invalid Age. Should be below 58.");
             }
             catch (Exception e) {
                 System.out.println("Exception Caught: " +e);
@@ -93,4 +88,12 @@ public class ISE_department implements Department
         return (exp_yrs[i]* subjects_handled[i])/4;
     }
 
+}
+
+class MainClass {
+    public static void main(String args[]) {
+        ISE_department o = new ISE_department();
+        o.readdata();
+        o.printdata();
+    }
 }

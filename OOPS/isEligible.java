@@ -1,4 +1,4 @@
-package com.example.javalib;
+// package com.example.javalib;
 
 import java.util.Scanner;
 
@@ -27,7 +27,7 @@ public class isEligible {
 
     double taxPay()
     {
-        double tax_amt=(ba+(hra/2)+da)*12,  tax=0.0;
+        double tax_amt=(ba+(hra/2)+da)*12, tax=0.0;
         if(tax_amt>250000 && tax_amt<=500000)
             tax=0.05*tax_amt;
         else if(tax_amt>500000 && tax_amt<=1000000)

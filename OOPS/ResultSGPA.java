@@ -38,9 +38,9 @@ class grade
         try
         {
             if(input> 10)
-            throw new InvalidSGPA(input);
+                throw new InvalidSGPA(input);
             else
-            System.out.println("sgpa is: " + input);
+                System.out.println("sgpa is: " + input);
         }
         catch (InvalidSGPA e)
         {
