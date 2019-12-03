@@ -1,6 +1,14 @@
 import java.util.*;
 import java.util.Scanner;
 // package StudentPackage
+public interface student 
+{
+    String name,branch;
+    default void getDetails()
+    {
+        System.out.println("No Student or Branch registered");
+    }
+}
 class CreditLimit extends Exception
 {
     public String toString()
@@ -9,7 +17,7 @@ class CreditLimit extends Exception
     }
 }
 
-class RegisterStudent
+class RegisterStudent implements student
 {
     void total(int cd)
     {
