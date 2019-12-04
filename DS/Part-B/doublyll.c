@@ -5,9 +5,9 @@
 
 struct node
 {
-int data;
-struct node *Forw;
-struct node *Back;
+	int data;
+	struct node *Forw;
+	struct node *Back;
 };
 typedef struct node NODE;
 NODE *newnode, *start=NULL, *currptr;
@@ -20,13 +20,13 @@ newnode=(NODE *)malloc(sizeof(NODE));
 		printf("\n Memory was not allocated");
 		return;
 	}
-	else*/
-	{
+	else
+	{*/
 		newnode->data=value;
 		newnode->Forw =NULL;
 		newnode->Back =NULL;
 		return newnode;	
-}
+//}
 }
 
 //Function to insert a node at the beginning

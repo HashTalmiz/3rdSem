@@ -1,6 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
-#include<math.h>
+#include <math.h>
 
 struct node
 {
@@ -35,7 +35,7 @@ void insert_node()
 	temp = (struct node*) malloc(sizeof(struct node));
 	printf("Enter the coeffcient and power \n");
 	scanf("%d%d",&temp->coef,&temp->power);
-	printf("%d%d",temp->coef,temp->power);
+	printf("%d%d\n",temp->coef,temp->power);
 	temp->link=NULL;
 
 	if (start == NULL)
@@ -64,7 +64,7 @@ void insert_node()
 		curptr->link = temp;
 	}
 	}
- 	printf("Do u want to continue: 1 for YES, 0 for NO");
+ 	printf("Do u want to continue: 1 for YES, 0 for NO\n");
 	scanf("%d",&ch);
 
 	}
@@ -86,10 +86,11 @@ int evaluate()
 }
 
 
-void main()
+int main()
 {
 	insert_node();
 	//insert_node();
 	display();
 	evaluate();
+	return 0;
 }
