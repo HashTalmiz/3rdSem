@@ -45,6 +45,15 @@ NODE pop(struct stack*st)
     st->top--;
     return x;
 }
+void preorder(NODE tree)
+{
+    if(tree!=NULL)
+    {
+        printf("%c\t",tree->info);
+        preorder(tree->left);
+        preorder(tree->right);
+    }
+}
 void inorder(NODE tree)
 {
     if(tree!=NULL)
@@ -115,7 +124,15 @@ int main()
     scanf("%s",postfix);
     tree=createtree(postfix);
     result=evaluate(tree);
+    printf("\n");
+    printf("The inorder traversal is: \n");
     inorder(tree);
+    printf("\n");
+    printf("The preorder traversal is: \n");
+    preorder(tree);
+    printf("\n");
+    printf("The postorder traversal is: \n");
+    postorder(tree);
     printf("\n");
     printf("%f\n",result);
     return 0;

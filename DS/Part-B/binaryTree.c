@@ -11,7 +11,7 @@ int item;
 int is_lchild(struct node *tree)
 {
   int ch;
-  printf("Do you want to create lchild of %d \n Enter 1 for YES and 2 for NO ", tree->data);
+  printf("Do you want to create lchild of %d? \nEnter 1 for YES or 0 for NO:\n", tree->data);
   fflush(stdin);
   scanf("%d",&ch);
   if (ch==1)
@@ -22,7 +22,7 @@ int is_lchild(struct node *tree)
 int is_rchild(struct node *tree)
 {
   int ch;
-  printf("Do you want to create rchild of %d \n Enter 1 for YES and for NO ", tree->data);
+  printf("Do you want to create rchild of %d? \nEnter 1 for YES or 0 for NO:\n", tree->data);
   fflush(stdin);
   scanf("%d",&ch);
   if (ch==1)
@@ -39,8 +39,7 @@ void create(struct node *tree)
     tree->lchild = (struct node*) malloc (sizeof(struct node));
     temp = tree ->lchild;
     fflush(stdin);
-
-    printf("Enter the data");
+    printf("Enter the data: ");
     scanf("%d",&temp->data);
     create(temp);
   }
@@ -53,7 +52,7 @@ void create(struct node *tree)
     tree->rchild = (struct node*) malloc (sizeof(struct node));
     temp = tree->rchild;
     fflush(stdin);
-    printf("Enter the data");
+    printf("Enter the data: ");
     scanf("%d",&temp->data);
     create(temp);
   }
@@ -63,7 +62,7 @@ void create(struct node *tree)
   }
 }
 
-void inorder(struct node *tree)
+void inorder(struct node *tree)//LNR
 {
   if(tree!=NULL)
   {
@@ -72,13 +71,37 @@ void inorder(struct node *tree)
     inorder(tree->rchild);
   }
 }
+void preorder(struct node *tree)//NLR
+{
+  if(tree!=NULL)
+  {
+    printf("%d\t",tree->data);
+    preorder(tree->lchild);
+    preorder(tree->rchild);
+  }
+}
+void postorder(struct node *tree)//LRN
+{
+  if(tree!=NULL)
+  {
+    postorder(tree->lchild);
+    postorder(tree->rchild);
+    printf("%d\t",tree->data);
+  }
+}
 void main()
 {
-  printf("Create the root node\n");
   root=(struct node*) malloc (sizeof(struct node));
-  printf("enter the data \n");
+  printf("Enter the data for the root node: ");
   scanf("%d",&root->data);
   create(root);
-  printf("The inorder traversal is \n");
+  printf("The inorder traversal is: \n");
   inorder(root);
+  printf("\n");
+  printf("The preorder traversal is: \n");
+  preorder(root);
+  printf("\n");
+  printf("The postorder traversal is: \n");
+  postorder(root);
+  printf("\n");
 }

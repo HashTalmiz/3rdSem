@@ -2,14 +2,13 @@
 #include<malloc.h>
 #include<stdlib.h>
 
-struct node
+typedef struct node
 {
 	int data;
 	struct node *Forw;
 	struct node *Back;
-};
-typedef struct node NODE;
-NODE *newnode, *start=NULL, *ptr;
+}NODE;
+NODE *newnode, *start=NULL, *ptr=NULL;
 
 NODE *getnode(int value)
 {
@@ -43,7 +42,6 @@ void insert()
     else if(start->data >= newnode->data)
     {
         newnode->Forw=start;
-		newnode->Back=NULL;
         start->Back=newnode;
 		start=newnode;
 	}
