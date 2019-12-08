@@ -34,7 +34,7 @@ void display()
         return;
     }
     printf("The elements are: ");
-    for(i=f;i!=r;i=(i+1)%size)
+    for(i=f ; i!=r ; i=(i+1)%size)
         printf("%d\t",cq[i]);
     printf("%d\t",cq[i]);
 }
@@ -49,7 +49,7 @@ int main()
         {
             case 1: printf("Enter the element to be inserted:");
                     scanf("%d",&item);
-                    insert(item); break;
+                    insert(item);
             case 2: display(); break;
             case 3: delete(); break;
             case 4: break;

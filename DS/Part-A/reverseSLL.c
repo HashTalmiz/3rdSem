@@ -200,8 +200,17 @@ else
 	free(currptr);
 }
 }
-//Main Program
-
+void reverse(NODE * p)
+{
+    if(p->link==NULL)
+    {
+        start = p;
+        return;
+    }
+    reverse(p->link);
+    p->link->link = p;
+    p->link=NULL;
+}
 int main()
 {
 	int ch;
@@ -214,10 +223,11 @@ int main()
 	printf("\n3:Insert at Given Position");
 	printf("\n4:Delete first node");
 	printf("\n5:Delete Last node");
-	printf("\n9:Delete node given its position");
-	printf("\n6:Display the list");
-	printf("\n7:Exit");
-	printf("\nEnter the choice");
+	printf("\n6:Delete node given its position");
+    printf("\n7:Reverse the list");
+	printf("\n8:Display the list");
+	printf("\n9:Exit");
+	printf("\nEnter the choice: ");
 	scanf("%d", &ch);
 
 	switch(ch)
@@ -227,12 +237,13 @@ int main()
 		case 3: insert_atposition(); break;
 		case 4: delete_firstnode(); break;
 		case 5: delete_lastnode(); break;
-		case 9: delete_givenPosition(); break;
-		case 6: display(); break;
-                case 7: exit(0);
+		case 6: delete_givenPosition(); break;
+        case 7: reverse(start);
+		case 8: display(); break;
+        case 9: exit(0);
 		default: printf("\n Invalid Choice"); break;
 		}
-                fflush(stdin);
+        fflush(stdin);
 	}
 return 0;
 }
