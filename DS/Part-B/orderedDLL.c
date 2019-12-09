@@ -90,4 +90,5 @@ int main()
             default: printf("Incorrect Choice");
         }
     }while(ch!=3);
+    return 0;
 }

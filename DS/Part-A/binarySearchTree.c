@@ -18,13 +18,13 @@ NODE createNode(int value)
 }     
 NODE insert(NODE root, int data)
 {
-        if (root == NULL) 
+    if (root == NULL) 
 		return createNode(data);
-        if (data < root->data)
-            	root->left  = insert(root->left, data);
-        else if (data > root->data)
-            	root->right = insert(root->right, data);   
-        return root;
+    if (data < root->data)
+        root->left  = insert(root->left, data);
+    else if (data > root->data)
+        root->right = insert(root->right, data);   
+    return root;
 }
 void inorder(NODE root)
 {

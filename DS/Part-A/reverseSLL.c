@@ -3,28 +3,38 @@
 #include<stdlib.h>
 struct node
 {
-int data;
-struct node *link;
+	int data;
+	struct node *link;
 };
 typedef struct node NODE;
 NODE *newnode, *start=NULL, *currptr, *prevptr;
 
 NODE *getnode(int value)
 {
-newnode=(NODE *)malloc(sizeof(NODE));
-/*if(newnode==NULL)
-{
-		printf("\n Memory was not allocated");
-		return;
-	}
-	else*/
+	newnode=(NODE *)malloc(sizeof(NODE));
+	/*if(newnode==NULL)
 	{
-		newnode->data=value;
-		newnode->link =NULL;
-		return newnode;
+			printf("\n Memory was not allocated");
+			return;
+		}
+		else
+		{*/
+			newnode->data=value;
+			newnode->link =NULL;
+			return newnode;
+	//}
 }
+void reverse(NODE * p)
+{
+    if(p->link==NULL)
+    {
+        start = p;
+        return;
+    }
+    reverse(p->link);
+    p->link->link = p;
+    p->link=NULL;
 }
-
 void insert_beg()
 {
 	int value;
@@ -96,28 +106,28 @@ void insert_atposition()
 			currptr=currptr->link;
 		}
 		newnode->link=currptr->link;
-currptr->link=newnode;
+	currptr->link=newnode;
 
-printf("\n NODE  INSERTED");
+	printf("\n NODE  INSERTED");
 }
 else
-printf("\n Position out of range");
+	printf("\n Position out of range");
 }
 
 //Displaying ->linked list
 void display()
 {
-if(start==NULL)
-{
-	printf("\nList Empty, No nodes to display");
-	return;
-}
-else
-{
-	printf("\n The elements in the list are:");
-	for(currptr=start;currptr!=NULL;currptr=currptr->link)
-		printf("%d\t", currptr->data);
-}
+	if(start==NULL)
+	{
+		printf("\nList Empty, No nodes to display");
+		return;
+	}
+	else
+	{
+		printf("\n The elements in the list are:");
+		for(currptr=start;currptr!=NULL;currptr=currptr->link)
+			printf("%d\t", currptr->data);
+	}
 }
 
 //Delete First Node
@@ -125,23 +135,23 @@ else
 void delete_firstnode()
 {
 	if(start==NULL)
-{
-	printf("\nList Empty, No nodes to display");
-	return;
-}
-else if(start->link==NULL)
-{
-	currptr=start;
-	start=NULL;
-	free(currptr);
-}
-else
-{
-	currptr=start;
-	start=start->link;
-	printf("\n The deleted element is %d",currptr->data);
-	free(currptr);
-}
+	{	
+		printf("\nList Empty, No nodes to display");
+		return;
+	}
+	else if(start->link==NULL)
+	{
+		currptr=start;
+		start=NULL;
+		free(currptr);
+	}
+	else
+	{
+		currptr=start;
+		start=start->link;
+		printf("\n The deleted element is %d",currptr->data);
+		free(currptr);
+	}
 }
 
 //Function to delete last node
@@ -149,67 +159,57 @@ else
 void delete_lastnode()
 {
 	if(start==NULL)
-{
-	printf("\nList Empty, No nodes to display");
-	return;
-}
-else if(start->link==NULL)
-{
-	currptr=start;
-	start=NULL;
-	printf("\n The deleted element is %d",currptr->data);
-	free(currptr);
-}
-else
-{
-	currptr=start;
-	prevptr=NULL;
-	while(currptr->link!=NULL)
 	{
-		prevptr=currptr;
-		currptr=currptr->link;
+		printf("\nList Empty, No nodes to display");
+		return;
 	}
-	prevptr->link=NULL;
-	printf("\n The deleted element is %d",currptr->data);
-	free(currptr);
-}
+	else if(start->link==NULL)
+	{
+		currptr=start;
+		start=NULL;
+		printf("\n The deleted element is %d",currptr->data);
+		free(currptr);
+	}
+	else
+	{
+		currptr=start;
+		prevptr=NULL;
+		while(currptr->link!=NULL)
+		{
+			prevptr=currptr;
+			currptr=currptr->link;
+		}
+		prevptr->link=NULL;
+		printf("\n The deleted element is %d",currptr->data);
+		free(currptr);
+	}
 }
 
 void delete_givenPosition()
-{ int i,pos;
-printf("\n enter the position for the node:");
+{ 
+	int i,pos;
+	printf("\n enter the position for the node:");
 	scanf("%d", &pos);
-if(start==NULL)
-{
-	printf("\nList Empty, No nodes to display");
-	return;
-}
-if(pos==1)
-{
-	delete_firstnode();
-}
-else
-{	currptr=start;
-	for(i=1;i<pos;i++)
+	if(start==NULL)
 	{
-		prevptr=currptr;
-		currptr=currptr->link;
+		printf("\nList Empty, No nodes to display");
+		return;
 	}
-	prevptr->link=currptr->link;
-	printf("\n The deleted element is %d",currptr->data);
-	free(currptr);
-}
-}
-void reverse(NODE * p)
-{
-    if(p->link==NULL)
-    {
-        start = p;
-        return;
-    }
-    reverse(p->link);
-    p->link->link = p;
-    p->link=NULL;
+	if(pos==1)
+	{
+		delete_firstnode();
+	}
+	else
+	{	currptr=start;
+		for(i=1;i<pos;i++)
+		{
+			prevptr=currptr;
+			currptr=currptr->link;
+		}
+		prevptr->link=currptr->link;
+		printf("\n The deleted element is %d",currptr->data);
+		free(currptr);
+	}
 }
 int main()
 {
@@ -232,7 +232,7 @@ int main()
 
 	switch(ch)
 	{
-		case 1:  insert_beg(); break;
+		case 1: insert_beg(); break;
 		case 2: insert_end(); break;
 		case 3: insert_atposition(); break;
 		case 4: delete_firstnode(); break;

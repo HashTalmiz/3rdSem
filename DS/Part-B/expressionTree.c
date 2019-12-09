@@ -83,7 +83,7 @@ NODE createtree(char postfix[])
     for(i=0; i<strlen(postfix); i++)
     {
         ch=postfix[i];
-        temp=getnode(ch);
+        temp=getnode();
         temp->info=ch;
         temp->left=NULL;
         temp->right=NULL;
