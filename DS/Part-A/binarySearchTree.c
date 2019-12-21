@@ -1,55 +1,53 @@
 #include<stdio.h>
 #include<ctype.h>
 #include<stdlib.h>
-struct node
+typedef struct node
 {       
 	int data;
-        struct node* left;
-        struct node* right;
-};
-typedef struct node *NODE;
-NODE createNode(int value)
+	struct node* left;
+	struct node* right;
+}Node;
+
+Node* root=NULL;
+void inorder(Node* Root)
 {
-        NODE newnode = (NODE)malloc(sizeof(struct node));
+    if(Root != NULL)
+	{
+       	inorder(Root->left);
+		printf("%d  ", Root->data);
+        inorder(Root->right);
+ 	}
+}
+Node* createNode(int value)
+{
+        Node* newnode = (Node*)malloc(sizeof(Node));
         newnode->data = value;
         newnode->left = NULL;
         newnode->right = NULL;
         return newnode;
-}     
-NODE insert(NODE root, int data)
-{
-    if (root == NULL) 
-		return createNode(data);
-    if (data < root->data)
-        root->left  = insert(root->left, data);
-    else if (data > root->data)
-        root->right = insert(root->right, data);   
-    return root;
 }
-void inorder(NODE root)
+Node* insert(Node* root, int data)
 {
-        if(root != NULL)
-	{
-       		inorder(root->left);
-		printf("%d  ", root->data);
-        	inorder(root->right);
- 	}
+	if(root==NULL)
+		root=createNode(data);
+	else if(data<=root->data)
+		root->left=insert(root->left,data);
+	else if(data>root->data)
+		root->right=insert(root->right,data);
+	return root;
 }
-void main()
+int main()
 {
-    NODE root = NULL;
-	int item;
-	printf("Enter the root\n");
-	scanf("%d",&item);
-        root = insert(root,item);
-	printf("Press (E) to end tree insertion, DUPLICATES WILL BE DISCARDED:\n");
-	while(1)
-	{
-		printf("Enter the root:\n");
-		if( scanf("%d",&item) != 1) 
-        		break;
-		insert(root,item);
-	}
-	printf("Inorder(ascending):  ");
+	int n;
+	printf("Enter the number of nodes:");
+	scanf("%d",&n);
+	int *a=(int*)malloc(n*sizeof(int));
+	printf("Enter the node elements:");
+	for(int i=0;i<n;i++)
+		scanf("%d",&a[i]);
+	for(int i=0;i<n;i++)
+		root=insert(root,a[i]);
+	printf("The inorder traversal of the Binary Search Tree is: ");
 	inorder(root);
+		return 0;
 }
