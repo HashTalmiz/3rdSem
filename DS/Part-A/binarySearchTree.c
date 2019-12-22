@@ -49,5 +49,6 @@ int main()
 		root=insert(root,a[i]);
 	printf("The inorder traversal of the Binary Search Tree is: ");
 	inorder(root);
-		return 0;
+	free(a);
+	return 0;
 }
