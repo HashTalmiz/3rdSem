@@ -1,3 +1,5 @@
+#include <stdio.h>
+#include <stdlib.h>
 int binarySearch(int arr[], int l, int r, int x) 
 { 
    if (r >= l) 
@@ -25,14 +27,32 @@ int gcd(int a, int b)
 }
 int main()
 {
-    int a,b;
+    int a,b,n,arr[100],ch;
+    redo:
     printf("Choose:\n1.GCD\n2.Binary Search\n");
     scanf("%d",&ch);
     if(ch==1)
     {
         printf("Enter the two numbers:");
         scanf("%d%d",&a,&b);
-        a=GCD(a,b);
-        printf("The GCD=%d",a);
+        a=gcd(a,b);
+        printf("The GCD=%d\n",a);
+    }
+    else if(ch==2)
+    {
+        printf("Enter the number of elements:");
+        scanf("%d",&n);
+        printf("Enter the elements:");
+        for(int i=0;i<n;i++)
+            scanf("%d",&arr[i]);
+        printf("Enter the searching element:");
+        scanf("%d",&b);
+        int result=binarySearch(&arr[0],0,n-1,b);
+        (result==-1)?printf("Element not found\n"):printf("The element was found at index %d\n",result);
+    }
+    else
+    {
+        printf("Incorrect Choice, Please try again\n");
+        goto redo;
     }
 }

@@ -86,8 +86,7 @@ void insert_atposition()
 	{
 		insert_beg();
 	}
-	else
-           if(pos>1&&pos<=count)
+	else if(pos>1&&pos<=count)
 	{
 		currptr=last->link;	
 		printf("\nenter the value for the node:");

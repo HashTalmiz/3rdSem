@@ -29,13 +29,14 @@ void display()
 
 
 void insert_node()
-{	int ch = 1;
+{	
+	int ch = 1;
 	while (ch == 1)
 	{
 		temp = (struct node*) malloc(sizeof(struct node));
 		printf("Enter the coeffcient and power \n");
 		scanf("%d%d",&temp->coef,&temp->power);
-		printf("%dx^(%d)\n",temp->coef,temp->power);
+		printf("%dx^(%d) Accepted\n",temp->coef,temp->power);
 		temp->link=NULL;
 
 		if (start == NULL)

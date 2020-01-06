@@ -38,17 +38,20 @@ Node* insert(Node* root, int data)
 }
 int main()
 {
-	int n;
-	printf("Enter the number of nodes:");
-	scanf("%d",&n);
-	int *a=(int*)malloc(n*sizeof(int));
-	printf("Enter the node elements:");
-	for(int i=0;i<n;i++)
-		scanf("%d",&a[i]);
-	for(int i=0;i<n;i++)
-		root=insert(root,a[i]);
-	printf("The inorder traversal of the Binary Search Tree is: ");
-	inorder(root);
-	free(a);
+	int ch,x;
+	do
+	{
+		printf("\nBinary Search Tree Operations\n1.Add Node\n2.Inorder Traverseal\n3.Quit\n");
+		scanf("%d",&ch);
+		switch(ch)
+		{
+			case 1: printf("Enter the value:");
+					scanf("%d",&x);
+					root=insert(root,x);break;
+			case 2: inorder(root);break;
+			case 3: break;
+            default:printf("Incorrect Choice\n");
+		}
+	}while(ch!=3);
 	return 0;
 }

@@ -87,8 +87,11 @@ int full(stack *s)
 }
 void push(stack *s, char x)
 {
-	s->top=s->top+1;
-	s->data[s->top]=x;
+	if(!full(&s))
+	{
+		s->top=s->top+1;
+		s->data[s->top]=x;
+	}
 }
 char pop(stack *s)
 {

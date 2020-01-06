@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 int count=0,f=-1,r=-1,size=5,cq[100];
-void insert(int item)
+void Enqueue(int item)
 {   
     if(count==size)
     {
@@ -14,7 +14,7 @@ void insert(int item)
     cq[r] = item;
     count++;
 }
-void delete()
+void Dequeue()
 {
     if(count==0)
     {
@@ -49,9 +49,9 @@ int main()
         {
             case 1: printf("Enter the element to be inserted:");
                     scanf("%d",&item);
-                    insert(item);
+                    Enqueue(item);
             case 2: display(); break;
-            case 3: delete(); break;
+            case 3: Dequeue(); break;
             case 4: break;
             default:printf("Invalid Input");
         }

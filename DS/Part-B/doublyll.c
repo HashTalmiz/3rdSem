@@ -95,8 +95,7 @@ void insert_atposition()
 	{
 		insert_beg();
 	}
-	else
-           if(pos>1&&pos<=count)
+	else if(pos>1&&pos<=count)
 	{
 		currptr=start;	
 		printf("\nenter the value for the node:");
@@ -112,9 +111,9 @@ void insert_atposition()
 		currptr->Forw=newnode;	
 
 		printf("\n NODE  INSERTED");
-}
-else
-printf("\n Position out of range");
+	}
+	else
+	printf("\n Position out of range");
 }
 
 //Displaying ->linked list
@@ -136,21 +135,21 @@ else
 //Displaying- Reverse->linked list
 void display_Reverse()
 {
-if(start==NULL)
-{
-	printf("\nList Empty, No nodes to display");
-	return;
-}
-else
-{	currptr=start;
-	while(currptr->Forw!=NULL)
-		currptr=currptr->Forw;
-	printf("\nThe elements in the list are:");
-	while(currptr!=NULL)
-	{	printf("%d\t", currptr->data);
-		currptr=currptr->Back;
+	if(start==NULL)
+	{
+		printf("\nList Empty, No nodes to display");
+		return;
 	}
-}
+	else
+	{	currptr=start;
+		while(currptr->Forw!=NULL)
+			currptr=currptr->Forw;
+		printf("\nThe elements in the list are:");
+		while(currptr!=NULL)
+		{	printf("%d\t", currptr->data);
+			currptr=currptr->Back;
+		}
+	}
 }
 
 
@@ -159,24 +158,24 @@ else
 void delete_firstnode()
 {
 	if(start==NULL)
-{
-	printf("\nList Empty, No nodes to display");
-	return;
-}
-else if(start->Forw==NULL)
-{
-	currptr=start;
-	start=NULL;
-	free(currptr);
-}
-else
-{
-	currptr=start;
-	start=start->Forw;
-	start->Back=NULL;
-	printf("\n The deleted element is %d",currptr->data);
-	free(currptr);
-}
+	{
+		printf("\nList Empty, No nodes to display");
+		return;
+	}
+	else if(start->Forw==NULL)
+	{
+		currptr=start;
+		start=NULL;
+		free(currptr);
+	}
+	else
+	{
+		currptr=start;
+		start=start->Forw;
+		start->Back=NULL;
+		printf("\n The deleted element is %d",currptr->data);
+		free(currptr);
+	}
 }
 
 //Function to delete last node

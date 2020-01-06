@@ -44,6 +44,7 @@ int main()
             case 2:pop();break;
             case 3:display();
             case 4:break;
+            default:printf("Incorrect Choice\n");
        }
    }while(ch!=4);
 }

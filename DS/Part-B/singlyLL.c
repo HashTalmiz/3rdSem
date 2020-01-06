@@ -197,15 +197,6 @@ else
 	}
 	prevptr->link=currptr->link;
 	printf("\n The deleted element is %d",currptr->data);
-	free(currptr);
-}
-}
-//Main Program
-
-int main()
-{
-	int ch;
-
 	while(1)
 {
 	printf("\nOperations on singly ->linked list");

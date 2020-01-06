@@ -6,7 +6,6 @@ class stacks
 	{
 		top=-1;
 		a= new int[size];
-		n=size;
 	}
 	public void display()
 	{
@@ -19,7 +18,7 @@ class stacks
 	}
 	public void push()
 	{
-		if(top==n-1)
+		if(top==a.length-1)
 		{
 			System.out.println("____________________________\nSTACK OVERFLOW\n____________________________");
 			return;
@@ -52,7 +51,7 @@ class stacks
 		Scanner sc = new Scanner(System.in);
 		System.out.print("Enter the size of the stack:");
 		int siz= sc.nextInt();
-		stack s1= new stack(siz);
+		stacks s1= new stacks(siz);
 		do
 		{
 			System.out.println("\nEnter the Choice:\n1.Push\n2.Pop\n3.Display\n4.Exit");
